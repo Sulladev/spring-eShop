@@ -45,4 +45,16 @@
     <changeSet author="nik_pir (generated)" id="1608885723521-6">
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="users_roles" constraintName="FKj6m8fwv7oqv74fcehir1a9ffy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
     </changeSet>
+
+    <changeSet author="nik_pir" id="1608885723521-7" >
+        <sqlFile dbms="mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGo"
+                 path="insert-default-users-roles.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"
+        />
+        <rollback/>
+    </changeSet>
 </databaseChangeLog>
