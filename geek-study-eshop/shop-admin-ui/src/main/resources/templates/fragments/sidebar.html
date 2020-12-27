@@ -10,6 +10,10 @@
                 <i class="fa fa-fw fa-link"></i> Users</a></li>
             <li th:classappend="${activePage == 'Roles'} ? active"><a th:href="@{/roles}">
                 <i class="fa fa-fw fa-link"></i> Roles</a></li>
+            <li th:classappend="${activePage == 'Products'} ? active"><a th:href="@{/products}">
+                <i class="fa fa-fw fa-link"></i> Products</a></li>
+            <li th:classappend="${activePage == 'Categories'} ? active"><a th:href="@{/categories}">
+                <i class="fa fa-fw fa-link"></i> Categories</a></li>
         </ul>
     </div>
 

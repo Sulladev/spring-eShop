@@ -9,24 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.geekbrains.controller.repr.RoleRepr;
-import ru.geekbrains.controller.repr.UserRepr;
 import ru.geekbrains.error.NotFoundException;
 import ru.geekbrains.persist.repo.UserRepository;
 import ru.geekbrains.service.RoleService;
-
 import javax.validation.Valid;
+
 
 @Controller
 public class RoleController {
 
     private RoleService roleService;
 
-    private UserRepository userRepository;
-
     @Autowired
-    public RoleController(RoleService roleService, UserRepository userRepository) {
+    public RoleController(RoleService roleService) {
         this.roleService = roleService;
-        this.userRepository = userRepository;
     }
 
 

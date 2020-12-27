@@ -1,5 +1,6 @@
 package ru.geekbrains.controller.repr;
 
+import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.persist.model.Role;
 import ru.geekbrains.persist.model.User;
 
@@ -23,6 +24,7 @@ public class RoleRepr {
         this.name = role.getName();
         this.users = role.getUsers();
     }
+
 
     public Long getId() {
         return id;
