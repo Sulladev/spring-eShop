@@ -22,5 +22,11 @@
         <tagDatabase tag="v-2.0"/>
     </changeSet>
 
+    <include file="v-3.0/db.changelog-20201229-124435125.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="30" author="nik_pir">
+        <tagDatabase tag="v-3.0"/>
+    </changeSet>
+
 
 </databaseChangeLog>    

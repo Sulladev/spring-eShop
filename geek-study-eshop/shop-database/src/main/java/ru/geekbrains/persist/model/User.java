@@ -26,10 +26,10 @@ public class User {
     @Column
     private String email;
 
-    @Column(length = 32)
+    @Column(length = 32, name = "first_name")
     private String firstName;
 
-    @Column(length = 32)
+    @Column(length = 32, name = "last_name")
     private String lastName;
 
     public User() {

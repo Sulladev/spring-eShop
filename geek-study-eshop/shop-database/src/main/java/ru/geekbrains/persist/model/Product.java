@@ -1,38 +1,42 @@
 package ru.geekbrains.persist.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", length = 32, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "image")
-    private String image;
-
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne(optional = false)
     private Category category;
+
+    @ManyToOne(optional = false)
+    private Brand brand;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Picture> pictures;
 
     public Product() {
     }
 
-    public Product(Long id, String name, String image, Double price, Category category) {
-        this.id = id;
+    public Product(String name, BigDecimal price, Category category, Brand brand) {
         this.name = name;
-        this.image = image;
         this.price = price;
         this.category = category;
+        this.brand = brand;
     }
 
     public Long getId() {
@@ -51,19 +55,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -73,5 +69,21 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 }

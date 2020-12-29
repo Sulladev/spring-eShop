@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shop-admin-ui" />
         <module name="shop-database" />
+        <module name="shop-picture-service" />
+        <module name="shop-admin-ui" />
         <module name="shop-ui" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="geek-study-eshop" target="11" />
       <module name="shop-admin-ui" target="11" />
       <module name="shop-database" target="11" />
+      <module name="shop-picture-service" target="11" />
       <module name="shop-ui" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -22,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="shop-admin-ui" options="-parameters" />
       <module name="shop-database" options="-parameters" />
+      <module name="shop-picture-service" options="-parameters" />
       <module name="shop-ui" options="-parameters" />
     </option>
   </component>

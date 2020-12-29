@@ -3,11 +3,10 @@ package ru.geekbrains.persist.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "categories")
-public class Category implements Serializable {
+@Table(name = "brands")
+public class Brand implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,15 +17,14 @@ public class Category implements Serializable {
     private String name;
 
     @OneToMany(
-            mappedBy = "category",
+            mappedBy = "brand",
             cascade = CascadeType.ALL)
     private List<Product> products;
 
-    public Category() {
-
+    public Brand() {
     }
 
-    public Category(String name) {
+    public Brand(String name) {
         this.name = name;
     }
 
@@ -52,19 +50,5 @@ public class Category implements Serializable {
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return id.equals(category.id) &&
-                name.equals(category.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
     }
 }

@@ -12,34 +12,32 @@
     <div th:replace="fragments/sidebar :: sidebar"></div>
 
     <div class="content p-4">
-        <h2 class="mb-4">Categories list</h2>
+        <h2 class="mb-4">Brands list</h2>
 
         <div class="card mb-4">
 
             <div class="card-body">
-                <form class="form-group" th:action="@{/category/create}">
+                <form class="form-group" th:action="@{/brand/create}">
                     <button type="submit" class="btn btn-primary">Create new</button>
                 </form>
 
-                <table id="categories" class="table table-hover" cellspacing="0" width="100%">
+                <table id="brands" class="table table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-<!--                        <th>Product count</th>-->
                         <th class="actions">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="cat : ${categories}">
-                        <td th:text="${cat.id}"></td>
-                        <td th:text="${cat.name}"></td>
-<!--                        <td th:text="${cat.productCount}"></td>-->
+                    <tr th:each="brand : ${brands}">
+                        <td th:text="${brand.id}"></td>
+                        <td th:text="${brand.name}"></td>
                         <td>
-                            <a th:href="@{/category/{id}/edit(id=${cat.id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit">
+                            <a th:href="@{/brand/{id}/edit(id=${brand.id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-fw fa-edit"></i>
                             </a>
-                            <form th:action="@{/category/{id}/delete(id=${cat.id})}" th:method="delete" class="d-inline">
+                            <form th:action="@{/brand/{id}/delete(id=${brand.id})}" th:method="delete" class="d-inline">
                                 <button class="btn btn-icon btn-pill btn-danger" data-toggle="tooltip" title="Delete">
                                     <i class="fa fa-fw fa-trash"></i>
                                 </button>
@@ -58,7 +56,7 @@
 <script th:src="@{/js/datatables.min.js}"></script>
 <script>
     $(document).ready(function () {
-        $('#categories').DataTable();
+        $('#brands').DataTable();
     });
 </script>
 

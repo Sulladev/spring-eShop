@@ -1,34 +1,33 @@
 package ru.geekbrains.controller.repr;
 
 import ru.geekbrains.persist.model.Category;
-import ru.geekbrains.persist.model.Product;
 
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
+import java.io.Serializable;
 
-public class CategoryRepr {
+public class CategoryRepr implements Serializable {
 
-    private Long id;
+    private long id;
 
-    @NotEmpty
     private String name;
 
-    private List<Product> products;
+    private long productCount;
 
-    public CategoryRepr() {
+    public CategoryRepr(long id, String name, long productCount) {
+        this.id = id;
+        this.name = name;
+        this.productCount = productCount;
     }
 
     public CategoryRepr(Category category) {
         this.id = category.getId();
         this.name = category.getName();
-        this.products = category.getProducts();
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -40,11 +39,11 @@ public class CategoryRepr {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public long getProductCount() {
+        return productCount;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProductCount(long productCount) {
+        this.productCount = productCount;
     }
 }
