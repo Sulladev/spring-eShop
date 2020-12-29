@@ -16,5 +16,11 @@
         <tagDatabase tag="v-1.0"/>
     </changeSet>
 
+    <include file="v-2.0/db.changelog-20201226-124010063.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="20" author="nik_pir">
+        <tagDatabase tag="v-2.0"/>
+    </changeSet>
+
 
 </databaseChangeLog>    
