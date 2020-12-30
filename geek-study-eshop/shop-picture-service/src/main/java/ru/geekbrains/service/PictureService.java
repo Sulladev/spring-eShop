@@ -11,4 +11,5 @@ public interface PictureService {
     Optional<byte[]> getPictureDataById(long id);
 
     PictureData createPictureData(byte[] picture);
+
 }
