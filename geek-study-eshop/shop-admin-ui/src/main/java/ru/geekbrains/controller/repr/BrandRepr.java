@@ -1,13 +1,12 @@
 package ru.geekbrains.controller.repr;
 
-import ru.geekbrains.persist.model.Category;
+import ru.geekbrains.persist.model.Brand;
 import ru.geekbrains.persist.model.Product;
 
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.List;
 
-public class CategoryRepr implements Serializable {
+public class BrandRepr {
 
     private Long id;
 
@@ -16,14 +15,15 @@ public class CategoryRepr implements Serializable {
 
     private List<Product> products;
 
-    public CategoryRepr() {
+    public BrandRepr() {
     }
 
-    public CategoryRepr(Category category) {
-        this.id = category.getId();
-        this.name = category.getName();
-        this.products = category.getProducts();
+    public BrandRepr(Brand brand) {
+        this.id = brand.getId();
+        this.name = brand.getName();
+        this.products = brand.getProducts();
     }
+
 
     public Long getId() {
         return id;
