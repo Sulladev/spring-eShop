@@ -13,4 +13,8 @@ public interface PictureService {
 
     PictureData createPictureData(byte[] picture);
 
+    // TODO перенести сюда функционал получения списка картинок
+
+    // TODO перенести сюда функционал для удаления картинок
+
 }
