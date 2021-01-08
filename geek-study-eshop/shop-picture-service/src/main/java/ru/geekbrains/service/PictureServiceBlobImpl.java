@@ -22,18 +22,17 @@ public class PictureServiceBlobImpl implements PictureService {
 
     @Override
     public Optional<String> getPictureContentTypeById(long id) {
-        return repository.findById(id)
-                // TODO перенести проверку на уровень JPQL запроса
-                .filter(pic -> pic.getPictureData().getData() != null)
+
+        return repository.findPictureByIdAndPictureData_DataIsNotNull(id)
                 .map(Picture::getContentType);
     }
 
     @Override
     public Optional<byte[]> getPictureDataById(long id) {
-        return repository.findById(id)
-                // TODO перенести проверку на уровень JPQL запроса
-                .filter(pic -> pic.getPictureData().getData() != null)
+
+        return repository.findPictureByIdAndPictureData_DataIsNotNull(id)
                 .map(pic -> pic.getPictureData().getData());
+
     }
 
     @Override

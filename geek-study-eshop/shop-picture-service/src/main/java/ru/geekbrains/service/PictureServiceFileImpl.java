@@ -35,17 +35,16 @@ public class PictureServiceFileImpl implements PictureService {
 
     @Override
     public Optional<String> getPictureContentTypeById(long id) {
-        return repository.findById(id)
-                // TODO перенести проверку на уровень JPQL запроса
-                .filter(pic -> pic.getPictureData().getFileName() != null)
+
+        return repository.findPictureByIdAndPictureData_FileNameIsNotNull(id)
                 .map(Picture::getContentType);
+
     }
 
     @Override
     public Optional<byte[]> getPictureDataById(long id) {
-        return repository.findById(id)
-                // TODO перенести проверку на уровень JPQL запроса
-                .filter(pic -> pic.getPictureData().getFileName() != null)
+
+        return repository.findPictureByIdAndPictureData_FileNameIsNotNull(id)
                 .map(pic -> Path.of(storagePath, pic.getPictureData().getFileName()))
                 .filter(Files::exists)
                 .map(path -> {
@@ -56,6 +55,7 @@ public class PictureServiceFileImpl implements PictureService {
                         throw new RuntimeException(ex);
                     }
                 });
+
     }
 
     @Override
