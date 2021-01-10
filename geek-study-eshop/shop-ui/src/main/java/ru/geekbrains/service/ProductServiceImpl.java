@@ -7,6 +7,7 @@ import ru.geekbrains.controller.repr.ProductRepr;
 import ru.geekbrains.persist.repo.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,5 +26,10 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll().stream()
                 .map(ProductRepr::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<ProductRepr> findById(Long id) {
+        return productRepository.findById(id).map(ProductRepr::new);
     }
 }
