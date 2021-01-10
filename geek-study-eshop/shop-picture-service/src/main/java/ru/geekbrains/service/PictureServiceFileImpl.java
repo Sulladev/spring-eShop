@@ -74,11 +74,12 @@ public class PictureServiceFileImpl implements PictureService {
         return new PictureData(fileName);
     }
 
-    @Override
-    public List<PictureRepr> getPictures(Product product) {
-        return product.getPictures().stream()
-                .map(PictureRepr::new)
-                .collect(Collectors.toList());
-    }
+//    @Override
+//    public List<PictureRepr> getPictures(Product product) {
+//        return product.getPictures().stream()
+//                .map(PictureRepr::new)
+//                .collect(Collectors.toList());
+//    }
+
 }
 

@@ -44,10 +44,10 @@ public class PictureServiceBlobImpl implements PictureService {
         return new PictureData(picture);
     }
 
-    @Override
-    public List<PictureRepr> getPictures(Product product) {
-       return product.getPictures().stream()
-                .map(PictureRepr::new)
-                .collect(Collectors.toList());
-    }
+//    @Override
+//    public List<PictureRepr> getPictures(Product product) {
+//       return product.getPictures().stream()
+//                .map(PictureRepr::new)
+//                .collect(Collectors.toList());
+//    }
 }

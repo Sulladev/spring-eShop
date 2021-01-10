@@ -16,7 +16,7 @@ public interface PictureService {
 
     PictureData createPictureData(byte[] picture);
 
-    List<PictureRepr> getPictures (Product product);
+//    List<PictureRepr> getPictures (Product product);
 
     // TODO перенести сюда функционал получения списка картинок
 

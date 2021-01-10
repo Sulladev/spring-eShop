@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.geekbrains.persist.model.Brand;
 import ru.geekbrains.persist.model.Category;
 import ru.geekbrains.persist.model.Product;
+import ru.geekbrains.service.PictureService;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,6 +13,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ProductRepr implements Serializable {
+
+//    private PictureService pictureService;
 
     private Long id;
 
@@ -31,6 +34,7 @@ public class ProductRepr implements Serializable {
     }
 
     public ProductRepr(Product product) {
+
         this.id = product.getId();
         this.name = product.getName();
         this.price = product.getPrice();
@@ -39,6 +43,7 @@ public class ProductRepr implements Serializable {
         this.pictures = product.getPictures().stream()
                 .map(PictureRepr::new)
                 .collect(Collectors.toList());
+
     }
 
     public Long getId() {
