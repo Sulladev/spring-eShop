@@ -29,7 +29,7 @@
     </div>
 
     <section class="header_text sub">
-        <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products">
+        <img class="pageBanner" th:src="@{themes/images/pageBanner.png}" alt="New products">
         <h4><span>New products</span></h4>
     </section>
     <section class="main-content">
@@ -39,7 +39,7 @@
                 <ul class="thumbnails listing-products">
                     <li th:each="prod : ${products}" class="span3">
                         <div class="product-box">
-<!--                            <span class="sale_tag"></span>-->
+                            <span class="sale_tag"></span>
                              <a th:href="@{/product_details/{id}(id=${prod.id})}">
                                 <img alt="" th:src="@{/picture/{id}(id=${prod.mainPictureId})}">
                             </a><br/>
@@ -88,6 +88,6 @@
     </div>
 
 </div>
-<script src="themes/js/common.js"></script>
+<script th:src="@{themes/js/common.js}"></script>
 </body>
 </html>
