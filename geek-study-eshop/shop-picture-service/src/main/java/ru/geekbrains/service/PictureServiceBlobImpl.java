@@ -3,6 +3,7 @@ package ru.geekbrains.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.geekbrains.controller.repr.PictureRepr;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
@@ -44,10 +45,15 @@ public class PictureServiceBlobImpl implements PictureService {
         return new PictureData(picture);
     }
 
-//    @Override
-//    public List<PictureRepr> getPictures(Product product) {
-//       return product.getPictures().stream()
-//                .map(PictureRepr::new)
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public Optional<Product> getProductByPictureId(long id) {
+        return repository.findById(id)
+                .map(Picture::getProduct);
+    }
+
+    @Override
+    @Transactional
+    public void removePicture(long id) {
+        repository.deleteById(id);
+    }
 }

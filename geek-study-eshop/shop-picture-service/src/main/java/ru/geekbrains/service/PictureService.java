@@ -16,10 +16,10 @@ public interface PictureService {
 
     PictureData createPictureData(byte[] picture);
 
-//    List<PictureRepr> getPictures (Product product);
+    Optional<Product> getProductByPictureId(long id);
 
     // TODO перенести сюда функционал получения списка картинок
 
-    // TODO перенести сюда функционал для удаления картинок
+    void removePicture(long id);
 
 }

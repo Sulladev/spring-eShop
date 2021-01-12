@@ -4,9 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.service.PictureService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -37,5 +39,12 @@ public class PictureController {
         } else {
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
+    }
+
+    @DeleteMapping("/{pictureId}")
+    public String deletePicture(@PathVariable("pictureId") Long pictureId) {
+        Product product = pictureService.getProductByPictureId(pictureId).get();
+        pictureService.removePicture(pictureId);
+        return "redirect:/product/" + product.getId() + "/edit";
     }
 }
