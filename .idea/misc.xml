@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/geek-study-eshop/pom.xml" />
         <option value="$PROJECT_DIR$/geek-study-eshop/shop-picture-service-app/pom.xml" />
+        <option value="$PROJECT_DIR$/geek-study-eshop/spring-cloud-config/pom.xml" />
       </list>
     </option>
   </component>
