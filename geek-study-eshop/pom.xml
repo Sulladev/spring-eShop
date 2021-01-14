@@ -25,9 +25,22 @@
     <modules>
         <module>shop-database</module>
         <module>shop-picture-service</module>
+        <module>shop-picture-service-app</module>
         <module>shop-admin-ui</module>
         <module>shop-ui</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 

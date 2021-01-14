@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shop-database" />
+        <module name="shop-picture-service-app" />
         <module name="shop-picture-service" />
         <module name="shop-admin-ui" />
         <module name="shop-ui" />
@@ -17,6 +18,7 @@
       <module name="shop-admin-ui" target="11" />
       <module name="shop-database" target="11" />
       <module name="shop-picture-service" target="11" />
+      <module name="shop-picture-service-app" target="11" />
       <module name="shop-ui" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -25,6 +27,7 @@
       <module name="shop-admin-ui" options="-parameters" />
       <module name="shop-database" options="-parameters" />
       <module name="shop-picture-service" options="-parameters" />
+      <module name="shop-picture-service-app" options="-parameters" />
       <module name="shop-ui" options="-parameters" />
     </option>
   </component>
