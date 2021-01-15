@@ -41,7 +41,7 @@
                         <div class="product-box">
                             <span class="sale_tag"></span>
                              <a th:href="@{/product_details/{id}(id=${prod.id})}">
-                                <img alt="" th:src="@{/picture/{id}(id=${prod.mainPictureId})}">
+                                <img alt="" th:src="@{{pictureServiceUrl}/picture/{id}(id=${prod.mainPictureId}, pictureServiceUrl=${pictureServiceUrl})}">
                             </a><br/>
                             <a th:text="${prod.name}" class="title"></a><br/>
                             <a th:text="${prod.categoryName}"class="category"></a>
