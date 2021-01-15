@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--
+	Head
+-->
+
+<head th:replace="fragments/header :: head">
+</head>
+
+
+<body>
+
+
+<!--
+	Top Bar Section
+-->
+
+<div th:replace="fragments/header :: top-bar" id="top-bar" class="container">
+</div>
+
+
+<div id="wrapper" class="container">
+    <!--
+    NavBar Main-Menu
+    -->
+
+    <div th:replace="fragments/header :: nav-bar" class="navbar main-menu">
+    </div>
+
+    <section class="header_text sub">
+        <img class="pageBanner" th:src="@{themes/images/pageBanner.png}" alt="New products">
+        <h4><span>New products</span></h4>
+    </section>
+    <section class="main-content">
+
+        <div class="row">
+            <div class="span9">
+                <ul class="thumbnails listing-products">
+                    <li th:each="prod : ${products}" class="span3">
+                        <div class="product-box">
+                            <span class="sale_tag"></span>
+                             <a th:href="@{/product_details/{id}(id=${prod.id})}">
+                                <img alt="" th:src="@{/picture/{id}(id=${prod.mainPictureId})}">
+                            </a><br/>
+                            <a th:text="${prod.name}" class="title"></a><br/>
+                            <a th:text="${prod.categoryName}"class="category"></a>
+                            <p th:text="${prod.price}" class="price"></p>
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+                <div class="pagination pagination-small pagination-centered">
+                    <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--
+	        Side - Bar Section
+            -->
+
+            <div th:replace="fragments/sidebar :: side-bar" class="span3 col">
+            </div>
+
+
+        </div>
+    </section>
+
+    <!--
+	Footer-Bar
+    -->
+
+    <div th:replace="fragments/footer :: footer-bar" id="footer-bar">
+    </div>
+
+    <!--
+	Copyright-Bar
+    -->
+
+    <div th:replace="fragments/footer :: copyright-bar" id="copyright">
+    </div>
+
+</div>
+<script th:src="@{themes/js/common.js}"></script>
+</body>
+</html>

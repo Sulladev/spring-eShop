@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <title>Bootstrap E-commerce Templates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]>
+    <meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/webjars/bootstrap/2.3.2/css/bootstrap-responsive.min.css}" rel="stylesheet">
+
+    <link th:href="@{/themes/css/bootstrappage.css}" rel="stylesheet"/>
+
+    <!-- global styles -->
+    <link th:href="@{/webjars/FlexSlider/2.2.2/flexslider.css}" rel="stylesheet"/>
+    <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
+
+    <!-- scripts -->
+    <script th:src="@{/webjars/jquery/1.7.2/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/2.3.2/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/superfish/1.7.10/dist/js/superfish.js}"></script>
+    <script th:src="@{/themes/jquery.scrolltotop.js}"></script>
+
+    <!--[if lt IE 9]>
+    <script th:src="@{http://html5shim.googlecode.com/svn/trunk/html5.js}"></script>
+    <script th:src="@{js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+
+
+<!--
+	Top Bar Section
+-->
+
+<div th:fragment="top-bar" id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <form method="POST" class="search_form">
+                <input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
+            </form>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a th:href="@{#}">My Account</a></li>
+                    <li><a th:href="@{cart.html}">Your Cart</a></li>
+                    <li><a th:href="@{checkout.html}">Checkout</a></li>
+                    <li><a th:href="@{register.html}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+	NavBar-Inner Main-Menu
+-->
+
+<section th:fragment="nav-bar" class="navbar main-menu">
+    <div class="navbar-inner main-menu">
+        <a th:href="@{/}" class="logo pull-left"><img th:src="@{themes/images/logo.png}" class="site_logo" alt=""></a>
+        <nav id="menu" class="pull-right">
+            <ul>
+                <li><a th:href="@{/products}">Woman</a>
+                    <ul>
+                        <li><a th:href="@{/products}">Lacinia nibh</a></li>
+                        <li><a th:href="@{/products}">Eget molestie</a></li>
+                        <li><a th:href="@{/products}">Varius purus</a></li>
+                    </ul>
+                </li>
+                <li><a th:href="@{/products}">Man</a></li>
+                <li><a th:href="@{/products}">Sport</a>
+                    <ul>
+                        <li><a th:href="@{/products}">Gifts and Tech</a></li>
+                        <li><a th:href="@{/products}">Ties and Hats</a></li>
+                        <li><a th:href="@{/products}">Cold Weather</a></li>
+                    </ul>
+                </li>
+                <li><a th:href="@{/products}">Hangbag</a></li>
+                <li><a th:href="@{/products}">Best Seller</a></li>
+                <li><a th:href="@{/products}">Top Seller</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+</html>

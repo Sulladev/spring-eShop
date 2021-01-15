@@ -1,8 +1,11 @@
 package ru.geekbrains.service;
 
+import ru.geekbrains.controller.repr.PictureRepr;
 import ru.geekbrains.persist.model.PictureData;
+import ru.geekbrains.persist.model.Product;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 public interface PictureService {
@@ -13,8 +16,10 @@ public interface PictureService {
 
     PictureData createPictureData(byte[] picture);
 
+    Optional<Product> getProductByPictureId(long id);
+
     // TODO перенести сюда функционал получения списка картинок
 
-    // TODO перенести сюда функционал для удаления картинок
+    void removePicture(long id);
 
 }
