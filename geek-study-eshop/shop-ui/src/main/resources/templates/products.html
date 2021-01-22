@@ -88,6 +88,14 @@
     </div>
 
 </div>
-<script th:src="@{themes/js/common.js}"></script>
+
+<th:block th:fragment="scripts">
+    <div th:include="fragments/chat :: chat"/>
+<script th:src="@{/themes/js/common.js}"></script>
+
+<script th:src="@{/webjars/sockjs-client/1.0.2/sockjs.min.js}"></script>
+<script th:src="@{/webjars/stomp-websocket/2.3.3/stomp.min.js}"></script>
+<script th:src="@{/themes/js/chat.js}"></script>
+</th:block>
 </body>
 </html>

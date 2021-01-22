@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 

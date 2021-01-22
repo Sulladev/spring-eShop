@@ -19,6 +19,9 @@
     <link th:href="@{/webjars/FlexSlider/2.2.2/flexslider.css}" rel="stylesheet"/>
     <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
+    <!-- Customize styles -->
+    <link th:href="@{/chat.css}" rel="stylesheet"/>
+
     <!-- scripts -->
     <script th:src="@{/webjars/jquery/1.7.2/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/2.3.2/js/bootstrap.min.js}"></script>
@@ -26,8 +29,8 @@
     <script th:src="@{/themes/jquery.scrolltotop.js}"></script>
 
     <!--[if lt IE 9]>
-    <script th:src="@{http://html5shim.googlecode.com/svn/trunk/html5.js}"></script>
-    <script th:src="@{js/respond.min.js}"></script>
+    <script src="@{http://html5shim.googlecode.com/svn/trunk/html5.js}"></script>
+    <script src="@{js/respond.min.js}"></script>
     <![endif]-->
 </head>
 
@@ -62,7 +65,7 @@
 
 <section th:fragment="nav-bar" class="navbar main-menu">
     <div class="navbar-inner main-menu">
-        <a th:href="@{/}" class="logo pull-left"><img th:src="@{themes/images/logo.png}" class="site_logo" alt=""></a>
+        <a th:href="@{/}" class="logo pull-left"><img th:src="@{/themes/images/logo.png}" class="site_logo" alt=""></a>
         <nav id="menu" class="pull-right">
             <ul>
                 <li><a th:href="@{/products}">Woman</a>
