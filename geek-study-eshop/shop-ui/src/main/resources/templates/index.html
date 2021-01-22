@@ -30,10 +30,10 @@
         <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <img th:src="@{themes/images/carousel/banner-1.jpg}" alt=""/>
+                    <img th:src="@{/themes/images/carousel/banner-1.jpg}" alt=""/>
                 </li>
                 <li>
-                    <img th:src="@{themes/images/carousel/banner-2.jpg}" alt=""/>
+                    <img th:src="@{/themes/images/carousel/banner-2.jpg}" alt=""/>
                     <div class="intro">
                         <h1>Mid season sale</h1>
                         <p><span>Up to 50% Off</span></p>
@@ -329,8 +329,13 @@
     <div th:replace="fragments/footer :: copyright-bar" id="copyright">
     </div>
 
+
+
 </div>
-<script th:src="@{themes/js/common.js}"></script>
+
+<div th:include="fragments/chat :: chat"/>
+
+<script th:src="@{/themes/js/common.js}"></script>
 <script th:src="@{/webjars/FlexSlider/2.2.2/jquery.flexslider-min.js}"></script>
 <script type="text/javascript">
     $(function () {
@@ -346,5 +351,12 @@
         });
     });
 </script>
+
+
+<script th:src="@{/webjars/sockjs-client/1.0.2/sockjs.min.js}"></script>
+<script th:src="@{/webjars/stomp-websocket/2.3.3/stomp.min.js}"></script>
+<script th:src="@{/themes/js/chat.js}"></script>
+
+
 </body>
 </html>
