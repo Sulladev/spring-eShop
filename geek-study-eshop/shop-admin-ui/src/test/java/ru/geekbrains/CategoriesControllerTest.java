@@ -16,20 +16,23 @@ import ru.geekbrains.persist.model.Brand;
 import ru.geekbrains.persist.model.Category;
 import ru.geekbrains.persist.repo.CategoryRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ActiveProfiles("test")
 @TestPropertySource(locations = "classpath:application-test.properties")
 @AutoConfigureMockMvc
 @SpringBootTest
-public class CategoryControllerTest {
+public class CategoriesControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -58,5 +61,27 @@ public class CategoryControllerTest {
 
         assertTrue(opt.isPresent());
         assertEquals("New category", opt.get().getName());
+    }
+
+    @WithMockUser(value = "admin", password = "admin", roles = {"ADMIN"})
+    @Test
+    public void testBrandList() throws Exception {
+        Category category1 = categoryRepository.save(new Category("category1"));
+        Category category2 = categoryRepository.save(new Category("category2"));
+        List<Category> categories = new ArrayList<>();
+        categories.add(category1);
+        categories.add(category2);
+
+//        when(brandRepository.findAll()).thenReturn(brands);
+
+        mvc.perform(get("/categories"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("categories"))
+                .andExpect(model().attribute("categories", hasSize(2)));
+
+        Optional<Category> opt = categoryRepository.findOne(Example.of(new Category("category1")));
+
+        assertTrue(opt.isPresent());
+        assertEquals("category1", opt.get().getName());
     }
 }

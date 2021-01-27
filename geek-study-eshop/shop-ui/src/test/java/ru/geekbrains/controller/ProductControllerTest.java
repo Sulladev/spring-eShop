@@ -23,11 +23,7 @@ import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.persist.repo.BrandRepository;
 import ru.geekbrains.persist.repo.CategoryRepository;
 import ru.geekbrains.persist.repo.ProductRepository;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -40,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestPropertySource(locations = "classpath:application-test.properties")
 @AutoConfigureMockMvc
 @SpringBootTest
-public class ProductController {
+public class ProductControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -104,40 +100,5 @@ public class ProductController {
                         Matchers.is(Matchers.empty())));
 
     }
-
-//    @Test
-//    public void testProductsPage() throws Exception {
-//        Brand brand = brandRepository.save(new Brand("brand"));
-//        Category category = categoryRepository.save(new Category("Category"));
-//        Product product1 = productRepository.save(new Product("Product1", new BigDecimal(123), category, brand));
-//        Product product2 = productRepository.save(new Product("Product2", new BigDecimal(456), category, brand));
-//        List<Product> products = new ArrayList<>();
-//        products.add(product1);
-//        products.add(product2);
-//
-//        mvc.perform(get("/products/"))
-//                .andExpect(status().is2xxSuccessful())
-//                .andExpect(view().name("products"))
-//                .andExpect(model().attributeExists("activePage"))
-//                .andExpect(model().attributeExists("products"))
-//                .andExpect(model().attribute("products", new BaseMatcher<Product>() {
-//
-//                    @Override
-//                    public void describeTo(Description description) {
-//
-//                    }
-//
-//                    @Override
-//                    public boolean matches(Object o) {
-//                        if (o instanceof ProductRepr) {
-//                            ProductRepr productRepr = (ProductRepr) o;
-//                            return productRepr.getId().equals(products.get(0).getId());
-//                        }
-//                        return false;
-//                    }
-//                }));
-//    }
-
-
 }
 

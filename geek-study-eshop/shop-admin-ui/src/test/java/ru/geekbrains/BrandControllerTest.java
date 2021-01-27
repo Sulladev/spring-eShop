@@ -72,17 +72,26 @@ public class BrandControllerTest {
     @WithMockUser(value = "admin", password = "admin", roles = {"ADMIN"})
     @Test
     public void testBrandList() throws Exception {
+        Brand brand1 = brandRepository.save(new Brand("brand1"));
+        Brand brand2 = brandRepository.save(new Brand("brand2"));
         List<Brand> brands = new ArrayList<>();
-        brands.add(new Brand());
-        brands.add(new Brand());
-        
-        when(brandService.findAll()).thenReturn((List) brands);
+        brands.add(brand1);
+        brands.add(brand2);
+
+//        when(brandRepository.findAll()).thenReturn(brands);
 
         mvc.perform(get("/brands"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("brands"))
                 .andExpect(model().attribute("brands", hasSize(2)));
+
+        Optional<Brand> opt = brandRepository.findOne(Example.of(new Brand("brand2")));
+
+        assertTrue(opt.isPresent());
+        assertEquals("brand2", opt.get().getName());
     }
+
+
 
 
 }
