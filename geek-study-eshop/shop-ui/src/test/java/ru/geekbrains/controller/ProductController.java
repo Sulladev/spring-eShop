@@ -4,6 +4,7 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import ru.geekbrains.controller.repr.ProductRepr;
 import ru.geekbrains.persist.model.Brand;
 import ru.geekbrains.persist.model.Category;
@@ -22,6 +25,8 @@ import ru.geekbrains.persist.repo.CategoryRepository;
 import ru.geekbrains.persist.repo.ProductRepository;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -88,4 +93,51 @@ public class ProductController {
                     }
                 }));
     }
+
+    @Test
+    public void testList() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/products"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.view().name("products"))
+                .andExpect(MockMvcResultMatchers.model().attributeExists("products"))
+                .andExpect(MockMvcResultMatchers.model().attribute("products",
+                        Matchers.is(Matchers.empty())));
+
+    }
+
+//    @Test
+//    public void testProductsPage() throws Exception {
+//        Brand brand = brandRepository.save(new Brand("brand"));
+//        Category category = categoryRepository.save(new Category("Category"));
+//        Product product1 = productRepository.save(new Product("Product1", new BigDecimal(123), category, brand));
+//        Product product2 = productRepository.save(new Product("Product2", new BigDecimal(456), category, brand));
+//        List<Product> products = new ArrayList<>();
+//        products.add(product1);
+//        products.add(product2);
+//
+//        mvc.perform(get("/products/"))
+//                .andExpect(status().is2xxSuccessful())
+//                .andExpect(view().name("products"))
+//                .andExpect(model().attributeExists("activePage"))
+//                .andExpect(model().attributeExists("products"))
+//                .andExpect(model().attribute("products", new BaseMatcher<Product>() {
+//
+//                    @Override
+//                    public void describeTo(Description description) {
+//
+//                    }
+//
+//                    @Override
+//                    public boolean matches(Object o) {
+//                        if (o instanceof ProductRepr) {
+//                            ProductRepr productRepr = (ProductRepr) o;
+//                            return productRepr.getId().equals(products.get(0).getId());
+//                        }
+//                        return false;
+//                    }
+//                }));
+//    }
+
+
 }
+

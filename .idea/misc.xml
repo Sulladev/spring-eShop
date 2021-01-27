@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/geek-study-eshop/spring-cloud-config/pom.xml" />
         <option value="$PROJECT_DIR$/geek-study-eshop/spring-eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/geek-study-eshop/spring-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/geek-study-eshop/rabbit-mq-messenger/pom.xml" />
       </list>
     </option>
   </component>
